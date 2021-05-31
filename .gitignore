@@ -11,3 +11,5 @@ dist
 out
 *.i*
 log.*
+*.iml
+*.ipr
