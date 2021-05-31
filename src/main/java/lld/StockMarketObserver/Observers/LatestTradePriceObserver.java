@@ -1,7 +1,6 @@
 package lld.StockMarketObserver.Observers;
 
 import lld.StockMarketObserver.MarketData;
-import lld.StockMarketObserver.Observers.MarketDataObserver;
 
 public class LatestTradePriceObserver implements MarketDataObserver {
 
