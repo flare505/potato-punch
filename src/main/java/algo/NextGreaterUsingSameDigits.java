@@ -21,32 +21,39 @@ import java.util.Arrays;
 //        Output: "536479"
 
 public class NextGreaterUsingSameDigits {
-    private static void swap(char[] digits, int i, int j) {
-        char temp = digits[i];
-        digits[i] = digits[j];
-        digits[j] = temp;
-    }
 
     public static void findNextGreater(String num) {
-        char[] digits = num.toCharArray();
+//        List<Integer> digits = Arrays.stream(num.split("")).map(Integer::parseInt).collect(Collectors.toList());
+        //TODO try to use list and java 8 functional programming to achieve this
 
+        char[] digits = num.toCharArray();
         int i;
         for(i = digits.length - 1; i > 0; i--) {
             if (digits[i] > digits[i-1]) {
                 break;
             }
         }
-
+        System.out.println(i + "\n=====");
         if (i == 0) {
-            System.out.println("not possible");
+            System.out.println("NP");
         }
         else {
-            System.out.println(i);
-            System.out.println("===");
-            swap(digits, i - 1, digits.length - 1);
-            Arrays.sort(digits, i, digits.length - 1);
-            System.out.println(digits);
+            int j = i;
+            for (int k = i; k < digits.length; k++) {
+                if (digits[i-1] < digits[k]) {
+                    j = digits[j] < digits[k] ? j : k;
+                }
+            }
+            swap(digits, i-1, j);
+            Arrays.sort(digits, i, digits.length);
+            System.out.println(String.valueOf(digits));
         }
+    }
+
+    private static void swap(char[] digits, int i, int j) {
+        char temp = digits[i];
+        digits[i] = digits[j];
+        digits[j] = temp;
     }
 
     public static void main(String[] args) {
