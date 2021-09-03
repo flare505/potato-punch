@@ -16,7 +16,7 @@ public class StockMarketPublisher implements MarketDataObservable{
     }
 
     @Override
-    public void handleMarketData(MarketData marketData) {
+    public void publishMarketData(MarketData marketData) {
         this.subscriptions.forEach(marketDataObserver -> {
             marketDataObserver.handleMarketData(marketData);
         });

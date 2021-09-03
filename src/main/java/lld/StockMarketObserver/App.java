@@ -18,10 +18,10 @@ public class App {
         stockMarketPublisher.subscribe(latestTradePriceObserver);
         stockMarketPublisher.subscribe(percentChangeObserver);
 
-        stockMarketPublisher.handleMarketData(new MarketData("SBIN", 20.3, 100));
+        stockMarketPublisher.publishMarketData(new MarketData("SBIN", 20.3, 100));
 
         // unsubscribe observers
         stockMarketPublisher.unsubscribe(percentChangeObserver);
-        stockMarketPublisher.handleMarketData(new MarketData("SBIN", 20.5, 100));
+        stockMarketPublisher.publishMarketData(new MarketData("SBIN", 20.5, 100));
     }
 }

@@ -27,6 +27,6 @@ public class AllPermutations {
     public static void main(String[] args) {
         String str = "ABC";
         reset = str;
-        printAllPermutations(str.toCharArray(), 0, 0);
+        printAllPermutations(str.toCharArray(), 0, str.length() - 1);
     }
 }
