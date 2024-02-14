@@ -7,7 +7,7 @@ public class PercentChangeObserver implements MarketDataObserver {
 
     @Override
     public void handleMarketData(MarketData marketData) {
-        System.out.println(marketData.getSymbol() + " ::Pclose:: " + this.previousClose);
+        //System.out.println(marketData.getSymbol() + " ::Pclose:: " + this.previousClose);
         System.out.println(marketData.getSymbol() + " ::CHNG:: " + (marketData.getLastPrice() - previousClose) / previousClose * 100);
         this.previousClose = marketData.getLastPrice();
     }

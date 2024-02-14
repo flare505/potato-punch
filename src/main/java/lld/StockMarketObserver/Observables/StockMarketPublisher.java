@@ -17,8 +17,12 @@ public class StockMarketPublisher implements MarketDataObservable{
 
     @Override
     public void publishMarketData(MarketData marketData) {
-        this.subscriptions.forEach(marketDataObserver -> {
+//        this.subscriptions.forEach(marketDataObserver -> {
+//            marketDataObserver.handleMarketData(marketData);
+//        });
+        this.subscriptions.parallelStream().forEach(marketDataObserver -> {
             marketDataObserver.handleMarketData(marketData);
+            System.out.println(Thread.currentThread().getName());
         });
     }
 

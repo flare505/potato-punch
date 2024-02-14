@@ -10,6 +10,7 @@ public class Main {
         Beverage beverage = new Espresso();
         beverage = new Mocha(beverage);
         beverage = new Whip(beverage);
+        beverage = new Whip(beverage);
 
         System.out.println(beverage.getDescription() + " -> cost:: " + beverage.cost());
     }
